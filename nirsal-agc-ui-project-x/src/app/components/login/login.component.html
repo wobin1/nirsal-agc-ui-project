@@ -1,0 +1,171 @@
+<!-- page-wrapper Start-->
+<div class="container-fluid p-0">
+    <!-- login page start-->
+    <div class="authentication-main">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="auth-innerright">
+                    <div class="authentication-box">
+                        <div class="mt-4">
+                            <div class="card-body px-0">
+                                <div class="cont text-center b-light" [ngClass]="{'s--signup': signup}">
+                                    <div>
+                                        <form class="theme-form">
+                                          <h4>LOGIN</h4>
+                                          <h6>Enter your Email Address and Password</h6>
+                                          <div class="form-group">
+                                            <label class="col-form-label pt-0">Your Email</label>
+                                            <input class="form-control" [(ngModel)]="loginData.email" name="email" type="email" required="">
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-form-label">Password</label>
+                                            <input class="form-control" [ngModel]="loginData.password" name="password" type="password" required="">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="col-form-label">Login as </label>
+                                            <select formcontrolname="loginAs" [(ngModel)]="loginAs.requester" name="requester" id="">
+                                              <option value="Respondent">Respondent</option>
+                                              <option value="CRC Admin">CRC Admin</option>
+                                              <option value="PMRO">PMRO</option>
+                                              <option value="Admin">Admin</option>
+                                            </select>
+                                          </div>
+                                          <div class="checkbox p-0">
+                                            <input id="checkbox1" type="checkbox">
+                                            <label for="checkbox1">Remember me</label>
+                                          </div>
+                                          <div class="form-group form-row mt-3 mb-0">
+                                            <div class="col-md-2 col-sm-6">
+                                              <!-- <button class="btn social-btn btn-fb">Facebook</button> -->
+                                            </div>
+                                            <div class="col-md-8 col-sm-6"  >
+                                              <button (click)="loginUser()" class="btn btn-primary btn-block" type="submit" >LOGIN</button>
+                                            
+
+                                            </div>
+                                            <div class="col-md-2 col-sm-6">
+                                              <!-- <button class="btn social-btn btn-google">Google + </button> -->
+                                            </div>
+                                          </div>
+                                          <div class="login-divider"></div>
+                                          <div class="social mt-3">
+                                            <div class="form-row btn-showcase">
+                                              <div class="col-md-3 col-sm-6">
+                                                <!-- <button class="btn social-btn btn-fb">Facebook</button> -->
+                                              </div>
+                                              <div class="col-md-6 col-sm-6">
+                                                <button class="btn social-btn btn-twitter">Reset your password</button>
+                                              </div>
+                                              <div class="col-md-3 col-sm-6">
+                                                <!-- <button class="btn social-btn btn-google">Google + </button> -->
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </form>
+                                    </div>
+                                    <div class="sub-cont">
+                                        <div class="img">
+                                            <div class="img__text m--up">
+                                                <h2>Don't have an account?</h2>
+                                                <p>This website is the Enrollment Portal for the NIRSAL Agro Geo-Cooperative System</p>
+                                            </div>
+                                            <div class="img__text m--in">
+                                                <h2>Already registered?</h2>
+                                                <p>If you already have an account, just sign in.</p>
+                                            </div>
+                                            <div class="img__btn" (click)=toggle()><span class="m--up">Sign up</span><span
+                                                    class="m--in">Sign in</span></div>
+                                        </div>
+                                        <div>
+                                            <form class="theme-form signupForm" *ngIf="showBVNSignup">
+                                              <h4>AGC Sign-up</h4>
+                                              <div class="row mt-5">
+                                                <div class="form-group col-md-12">
+                                                  <label class="col-form-label pt-0">Enter your BVN here</label>
+                                                  <input formControlName="user_bvn" class="form-control" type="email" required="">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                  <label class="col-form-label">Type of Respondent</label>
+                                                  <select formControlName="Respondent" class="form-control" required="">
+                                                    <option value="Youth">Youth</option>
+                                                    <option value="Individual">Individual</option>
+                                                    <option value="Corporate Body">Corporate Body</option>
+                                                    <option value="Existing Enterprise">Existing Enterprise</option>
+                                                    <option value="Community Leader">Community Leader</option>
+                                                    <option value="An N-POWER Beneficiary">An N-POWER Beneficiary</option>
+                                                    <option value="Unemployed Graduate">Unemployed Graduate</option>
+                                                  </select>
+                                                </div>
+                                              </div>
+                                              <div class="form-group form-row mt-3 mb-0">
+                                                <div class="col-md-2 col-sm-6">
+                                                  <!-- <button class="btn social-btn btn-fb">Facebook</button> -->
+                                                </div>
+                                                <div class="col-md-8 col-sm-6">
+                                                  <button class="btn btn-primary btn-block" type="submit" (click)="validateBvn()">CONTINUE</button>
+                                                </div>
+                                              </div>
+                                            </form>
+                                            <form class="theme-form signupForm" *ngIf="!showBVNSignup">
+                                              <h4>AGC Sign-up</h4>
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label pt-0">First Name</label>
+                                                  <input formControlName="first_name" class="form-control" type="email" required="">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label">Last Name</label>
+                                                  <input formControlName="last_name" class="form-control" type="password" required="">
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label pt-0">Email Address</label>
+                                                  <input formControlName="user_email" class="form-control" type="email" required="">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label">Phone Number</label>
+                                                  <input formControlName="phone_number" class="form-control" type="text" required="">
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label pt-0">State</label>
+                                                  <input formControlName="state" class="form-control" type="email" required="">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label">LGA</label>
+                                                  <input formControlName="LGA" class="form-control" type="text" required="">
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label pt-0">Password</label>
+                                                  <input formControlName="user_password" class="form-control" type="email" required="">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                  <label class="col-form-label">Confirm Password</label>
+                                                  <input class="form-control" type="password" required="">
+                                                </div>
+                                              </div>
+                                              <div class="form-group form-row mt-3 mb-0">
+                                                <div class="col-md-2 col-sm-6">
+                                                  <!-- <button class="btn social-btn btn-fb">Facebook</button> -->
+                                                </div>
+                                                <div class="col-md-8 col-sm-6">
+                                                  <button class="btn btn-primary btn-block" type="submit" routerLink="/dashboard">SUBMIT</button>
+                                                </div>
+                                              </div>
+                                          </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login page end-->
+</div>

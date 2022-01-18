@@ -1,0 +1,13 @@
+<div class="row mt-5">
+	<div class="col-md-12">
+		<h3 class="text-center">AGC Application Guidelines Will Appear Here</h3>
+	</div>
+</div>
+<div class="row mt-5">
+	<div class="col-md-12">
+		<div class="loader-box" *ngIf="processingRequest">
+			<div class="loader-9"></div>
+		</div>
+		<p class="text-center" *ngIf="!processingRequest"><a (click)="initNewRegistration()" class="btn btn-primary">CONTINUE</a></p>
+	</div>
+</div>

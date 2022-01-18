@@ -1,0 +1,173 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4CAF50 ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="/assets/images/logo/nirsal-logo.png" width="200px" height="100px" alt="image" class="img-fluid"></a>
+        </div>
+      </nav>
+      <!--End of first stage navbar with logo -->
+
+        <!-- Second level navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="/assets/images/logo/nirsal-logo-mark.png" width="50px" height="34px" alt="image" class="img-fluid"> <strong> CRC Dashboard</strong></a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          
+          </div>
+        </div>
+      </nav>
+
+      <!-- Body section -->
+        <div style="margin-top: 20px; margin-bottom: 20px;" class="page-content container"  >
+
+
+        <!-- third level navigation  -->
+       
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #808080">
+                    <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="container">
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                      </ul>
+                    </div>
+                    </div>
+                  </div>
+                </nav>
+      
+        <!--end of third level navigation  -->
+
+          <div class="row">
+
+            <div class="col-12">
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">S/N</th>
+                      <th scope="col">AGC name</th>
+                      <th scope="col">AGC id</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+                        <!-- Button trigger modal -->
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                            Test AGC
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  
+                                  <div style=" margin: auto; width: 50%;">
+                                    
+                                      <tr>
+                                        <td>
+                                          <p>
+                                          
+                                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                              Button with data-target
+                                            </button>
+                                          </p>
+                                          <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+                                             <div style=" margin: auto; width: 50%;">
+                                                <button (click)="exportexcel()">Credit Risk Check</button>
+                                               
+                                                <table id="excel-table">
+                                                  <tr>
+                                                    <th>Id</th>
+                                                    <th>Name</th>
+                                                    <th>bvn</th>
+                                                    <th>CRC</th>
+                                                  </tr>
+                                                  <tr *ngFor="let item of allocation; let i = index;">
+                                                    <td>{{i + 1}}</td>
+                                                    <td>{{item.farmerInfo.name}}</td>
+                                                    <td>{{item.farmerInfo.bvn}}</td>
+                                                    <td>{{item.farmerInfo.number}}</td>
+                                                    <td></td>
+                                                  </tr>
+                                                </table>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </td>
+                                        
+                                      </tr>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                      </td>
+                      <td>Otto</td>
+                      <td>
+                        <button (click)="exportexcel()" style="margin: 5px;" type="button" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                        </svg>                       
+                       </button>
+                        
+                        <button  style="margin-left: 5px"  class="btn btn-success">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                      </svg>
+                        </button>
+                      </td>
+                        
+                    </tr>
+                    
+                  </tbody>
+                </table>
+
+              </div>
+              
+            </div>
+                </div>
+              </div>
+
+              
+          </div>
+        </div>
+
+<!-- Footer -->
+<nav class="navbary fixed-bottom navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+           <span class="navbar-text">
+          &copy; 2021. <a href="#">NIRSAL PMRO Portal</a> developed by <a href="https://skylabfintech.ng" target="_blank">SkyLab</a>
+        </span>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          
+          </div>
+        </div>
+      </nav>
+<!-- Footer -->

@@ -1,0 +1,45 @@
+<div class="col-sm-12">
+	<div class="card ribbon-wrapper">
+	  <div class="card-header">
+	    <h5>Farmer's VAsT IDs</h5><span></span>
+	  </div>
+	  <div class="card-block row">
+	    <div class="col-sm-12 col-lg-12 col-xl-12">
+	      <div class="table-responsive">
+	        <table class="table">
+	          <thead class="thead-light">
+	            <tr>
+	              <th scope="col">#</th>
+	              <th scope="col">Farmer's Name</th>
+	              <th scope="col">Farmer ID</th>
+	              <th scope="col">VAsT ID</th>
+	              <th scope="col">Actions</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr *ngFor="let item of allocation; let i = index;">
+	              <td scope="row">{{i + 1}}</td>
+	              <td>
+	              	<div class="row" *ngIf="item.farmerInfo.photo">
+		              	<span class="col-4 pr-0">
+		              		<img class="img-fluid" [src]="serverRequest.sanitizeImage(item.farmerInfo.photo)" alt="" style="width: 50px !important; height: 50px; border-radius: 10px;">
+		              	</span>
+		              	<span class="col-8 pl-0">{{item.farmerInfo.name}}</span>
+	             	</div>
+	              </td>
+	              <td style="text-transform: lowercase;">{{item.farmerId}}</td>
+	              <td>KD0114-{{i+1}}</td>
+	            </tr>
+	            <tr>
+	            	<td colspan="5"></td>
+	            </tr>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	    <div class="col-md-12 m-t-15">
+	    	<p class="text-center pt-3"><a (click)="processStage()" class="btn btn-primary">Continue</a></p>
+		</div>
+	  </div>
+	</div>
+</div>

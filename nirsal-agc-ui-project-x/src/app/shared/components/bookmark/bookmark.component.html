@@ -1,0 +1,68 @@
+<img class="img-fluid img-shadow-warning" src="assets/images/dashboard/bookmark.png" alt="">
+<div class="onhover-show-div bookmark-flip">
+	<div class="flip-card">
+		<div class="flip-card-inner" [ngClass]="{'flipped': open}">
+			<div class="front">
+				<ul class="droplet-dropdown bookmark-dropdown">
+					<li class="gradient-primary text-center">
+						<h5 class="f-w-700">Bookmark</h5><span>Bookmark Icon With Grid</span>
+					</li>
+					<li class="custom-scrollbar">
+						<div class="row">
+							<div class="col-4 text-center" *ngFor="let item of bookmarkItems" [dragula]='"drag-icon"'>
+								<a [routerLink]="item?.path" placement="top" ngbTooltip={{item?.title}}>
+									<i class="pe-7s-{{item.icon}} pe-lg"></i>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li class="text-center">
+						<button class="flip-btn" id="flip-btn" (click)=ToggleSearch()>Add New Bookmark</button>
+					</li>
+				</ul>
+			</div>
+			<div class="back">
+				<ul>
+					<li>
+						<div class="droplet-dropdown bookmark-dropdown flip-back-content">
+							<input type="text" placeholder="search..." [(ngModel)]="text"
+								[ngModelOptions]="{standalone: true}" (keyup)="searchTerm(text)">
+							<div class="Typeahead-menu custom-scrollbar" [class.is-open]="searchResult"
+								*ngIf="menuItems?.length" id="search-outer">
+								<div class="ProfileCard u-cf" *ngFor="let menuItem of menuItems | slice:0:8">
+									<div class="ProfileCard-avatar">
+										<i class="pe-7s-{{menuItem.icon}}"></i>
+									</div>
+									<div class="ProfileCard-details">
+										<div class="ProfileCard-realName">
+											<a [routerLink]="menuItem?.path" class="realname"
+												(click)="removeFix()">{{menuItem?.title}}</a>
+											<span class="pull-right">
+												<a href="javacript::void(0)">
+													<i class="fa fa-star-o f-18 mt-1"
+														[class.starred]="menuItem.bookmark"
+														(click)="addToBookmark(menuItem)">
+													</i>
+												</a>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="Typeahead-menu custom-scrollbar" [class.is-open]="searchResultEmpty">
+								<div class="tt-dataset tt-dataset-0">
+									<div class="EmptyMessage">
+										Opps!! There are no result found.
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<button class="d-block flip-back" id="flip-back" (click)=ToggleSearch()>Back</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<div [ngClass]="layout.config.settings.layout_type+' '+layout.config.settings.layout_version">
+  <div class="page-wrapper">
+    <div class="dark-body-only" id="outer-container">
+      <!-- page-wrapper Start-->
+      <div class="page-wrapper" [ngClass]="!navServices.horizontal ? 'default' : layout.config.settings.sidebar" id="canvas-bookmark">
+        <app-header (rightSidebarEvent)="rightSidebar($event)"></app-header>
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+          <div class="iconsidebar-menu" id="pages-sidebar"
+            [ngClass]="{'iconbar-mainmenu-close': navServices.collapseSidebarMainMenu }"
+            [class.iconbar-second-close]="navServices.collapseSidebarSecondMenu">
+            <app-sidebar></app-sidebar>
+          </div>
+          <div class="page-body">
+            <app-breadcrumb></app-breadcrumb>
+            <main [@fadeInAnimation]="getRouterOutletState(o)">
+              <router-outlet #o="outlet"></router-outlet>
+            </main>
+          </div>
+          <!-- footer start-->
+          <footer class="footer">
+            <app-footer></app-footer>
+          </footer>
+          <!-- footer End-->
+        </div>
+      </div>
+      <!-- Page Body End-->
+      <!-- page-wrapper End-->
+    </div>
+  </div>
+</div>

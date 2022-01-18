@@ -1,0 +1,51 @@
+<div class="sidebar">
+  <ul class="iconMenu-bar custom-scrollbar">
+    <li *ngFor="let menuItem of menuItems" [ngClass]="{open: menuItem.active}">
+      <!-- Sub -->
+        <a [routerLink]="null" class="bar-icons" style="cursor: default"
+        *ngIf="menuItem.type === 'sub'" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <i class="pe-7s-{{menuItem.icon}}"></i>
+        <span>{{menuItem.title | translate }}
+          <span class="badge badge-pill badge-{{menuItem.badgeType}} ml-3" *ngIf="menuItem.badgeType">
+            {{menuItem.badgeValue}}
+          </span>
+        </span>
+      </a>
+      <!-- 2nd Level Menu -->
+      <ul class="iconbar-mainmenu custom-scrollbar" [ngClass]="{'active': menuItem.active }" *ngIf="menuItem.children">
+        <li *ngFor="let childrenItem of menuItem.children" [ngClass]="{active: childrenItem.active}">
+          <!-- Sub -->
+          <a href="javascript:void(0)" *ngIf="childrenItem.type === 'sub'" class="iconbar-header">
+            <span> {{childrenItem.title | translate }} </span>
+          </a>
+          <!-- 3rd Level Menu -->
+          <p *ngIf="childrenItem.children">
+            <li *ngFor="let childrenSubItem of childrenItem.children" [ngClass]="{active: childrenSubItem?.active}">
+              <!-- Link -->
+              <a [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]"
+                *ngIf="childrenSubItem.type === 'link'" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <span [innerHTML]="childrenSubItem.title">
+                </span>
+              </a>
+              <!-- External Link -->
+              <a href="{{ !childrenSubItem.type ? null : childrenSubItem.path }}"
+                *ngIf="childrenSubItem.type === 'extLink'" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <span [innerHTML]="childrenSubItem.title">
+                </span>
+              </a>
+              <!-- External Tab Link -->
+              <a href="{{ !childrenSubItem.type ? null : childrenSubItem.path }}" target="_blank"
+                *ngIf="childrenSubItem.type === 'extTabLink'">
+                <span [innerHTML]="childrenSubItem.title">
+                </span>
+              </a>
+            </li>
+          </p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

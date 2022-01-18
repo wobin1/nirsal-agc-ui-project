@@ -1,0 +1,67 @@
+<div class="page-wrapper" style="height: 100vh">
+    <header class="main-header" style="height: 168px;">
+        <div class="topbar">
+            <div class="container" style="height: 110px;">
+                <div class="main-logo">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo/nirsal-logo.png" alt="">
+                    </a>
+                    <div class="mobile-nav__buttons">
+                        <a href="#" class="search-toggler"><i class="organik-icon-magnifying-glass"></i></a>
+                        <a href="#" class="mini-cart__toggler"><i class="organik-icon-shopping-cart"></i></a>
+                    </div>
+                    <span class="fa fa-bars mobile-nav__toggler"></span>
+                </div>
+                <div class="topbar__left">
+                </div>
+                <div class="topbar__right">
+                    <div class="topbar__info" style="margin-right:20px;">
+                        <i class="organik-icon-email"></i>
+                        <p style="text-align: left;"><small>Email <a href="https://ninetheme.com/cdn-cgi/l/email-protection#9af3f4fcf5daf5e8fdfbf4f3f1b4f9f5f7"><span class="__cf_email__" data-cfemail="9bf2f5fdf4dbf4e9fcfaf5f2f0b5f8f4f6">info@nirsal.com</span></a></small></p>
+                    </div>
+                    <div class="topbar__info">
+                        <i class="organik-icon-calling"></i>
+                        <p style="text-align: left;"><small>Phone <a href="tel:+234 801 234 5678">+234 801 234 5678</a></small></p>
+                    </div>
+                    <div class="topbar__buttons" style="flex-direction: row; height: 100px">
+                        <a href="#" class="mini-cart__toggler"><i class="organik-icon-farmer"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-menu">
+            <div class="container" style="height: 58px; margin-left: 29vw">
+                <ul class="main-menu__list">
+                    <li class="main-menu__login">
+                        <a [routerLink]="['/sign-in']"><i class="organik-icon-user"></i> Login</a>
+                    </li>
+                    <li class="main-menu__login">
+                        <a href="#"><i class="organik-icon-harvest"></i> Start AGC Application</a>
+                    </li>
+                    <li class="main-menu__login">
+                        <a href="#"><i class="organik-icon-location"></i> Start State Application</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="jumbotron jumbotron-fluid" style="height: inherit; background-image: url('assets/img/farm-bg.jpg'); background-size: cover;">
+          <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="margin-top: 15vh; background-color: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 10px; box-shadow: 2px 2px #60be74">
+                    <h1 class="display-5" style="font-weight: bold; color: #60be74">NIRSAL AGC PORTAL</h1>
+                    <p class="lead">Welcome to the enrollment portal for the NIRSAL<br/> Agro Geo-cooperative (AGC) System.</p>
+                    <p class="lead">Click one of the link above to get started</p>
+
+                    <a [routerLink]="['/sign-in']" class="thm-btn float-right" style="padding:10px; border-radius: 5px"> Login</a>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <!-- <img src="assets/images/logo/logo.png" alt=""> -->
+            
+          </div>
+        </div>
+    </section>
+</div>

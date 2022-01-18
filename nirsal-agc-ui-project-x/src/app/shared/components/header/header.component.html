@@ -1,0 +1,86 @@
+<div class="page-main-header">
+  <div class="main-header-right">
+    <div class="main-header-left text-center">
+      <div class="logo-wrapper"><a href="javascript:void(0)" routerLink='/'>
+        <img src="assets/images/logo/nirsal-logo.png" alt=""></a>
+      </div>
+    </div>
+    <div class="mobile-sidebar">
+      <div class="media-body text-right switch-sm">
+        <label class="switch ml-3">
+          <input id="sidebar-toggle" type="checkbox" checked="checked" (click)="collapseSidebar()">
+          <app-feather-icons class="font-primary" [icon]="'align-center'"></app-feather-icons>
+        </label>
+      </div>
+    </div>
+    <div class="vertical-mobile-sidebar"><i class="fa fa-bars sidebar-bar"> </i></div>
+    <div class="nav-right col pull-right right-menu">
+      <ul class="nav-menus" [ngClass]="{'open': openNav}">
+        <li>
+          <form class="form-inline search-form" method="get">
+            <div class="form-group">
+              <div class="Typeahead Typeahead--twitterUsers">
+                <div class="u-posRelative">
+                  <input class="Typeahead-input form-control-plaintext" [class.open]="navServices.openclass" id="demo-input" type="text" name="q" placeholder="Application overview" [(ngModel)]="text" [ngModelOptions]="{standalone: true}"
+                  (keyup)="searchTerm(text)" autocomplete="off">
+                  <div class="Typeahead-menu custom-scrollbar" [class.is-open]="searchResult" *ngIf="menuItems?.length"
+                  id="search-outer">
+                    <div class="ProfileCard u-cf" *ngFor="let menuItem of menuItems | slice:0:8">
+                      <div class="ProfileCard-avatar">
+                        <i class="pe-7s-{{menuItem.icon}}"></i>
+                      </div>
+                      <div class="ProfileCard-details">
+                        <div class="ProfileCard-realName">
+                          <a [routerLink]="menuItem?.path" class="realname"
+                          (click)="removeFix()">{{menuItem?.title}}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Typeahead-menu custom-scrollbar" [class.is-open]="searchResultEmpty">
+                    <div class="tt-dataset tt-dataset-0">
+                      <div class="EmptyMessage">
+                        Oops!! No matching step found.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="spinner-border Typeahead-spinner" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <span class="d-sm-none mobile-search" (click)="opensearch()">
+                    <app-feather-icons [icon]="'search'"></app-feather-icons>
+                  </span>
+                </div>
+                <div class="Typeahead-menu custom-scrollbar"></div>
+              </div>
+            </div>
+          </form>
+        </li>
+        <li class="text-dark" (click)="toggleFullScreen()">
+          <app-feather-icons [icon]="'maximize'"></app-feather-icons>
+        </li>
+        <li class="text-dark">
+          <button class="btn btn-outline-success" title="Expenses from BVN Calls">
+            <span class=" pr-1 f-20 f-w-700">&#x20A6;</span>
+            <span class="f-20 digits ">0.00</span>
+            <!-- <app-feather-icons [icon]="'corner-right-down'"></app-feather-icons> -->
+          </button>
+        </li>
+        <li class="onhover-dropdown"> <span class="media user-header">
+          <img class="img-fluid rounded-circle" src="assets/images/me_small.jpg" alt="" style="width: 50px !important; height: 50px;"></span>
+          <ul class="onhover-show-div profile-dropdown">
+            <li class="gradient-primary">
+              <h5 class="f-w-600 mb-0">John Doe</h5>
+            </li>
+            <li ><a href="javascript:void(0)">
+              <app-feather-icons [icon]="'log-out'"></app-feather-icons>Logout
+            </a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-lg-none mobile-toggle pull-right">
+        <app-feather-icons [icon]="'more-horizontal'" (click)="openMobileNav()"></app-feather-icons>
+      </div>
+    </div>
+  </div>
+</div>

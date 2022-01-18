@@ -1,0 +1,84 @@
+<div class="col-sm-12">
+	<div class="card ribbon-wrapper">
+	  <div class="card-header">
+	    <h5>Add Farmer's BVN</h5><span>Enter the AGC Member's BVN in the BVN column and click <code>Validate BVN</code> when you are done.</span>
+	  </div>
+	  <div class="card-block row">
+	  	<div class="ribbon ribbon-right text-white ribbon-danger" title="Total cost of BVN Entered">
+            <span class="pr-1 f-20 f-w-700">&#x20A6;</span>
+            <span class="f-20 digits">300.00</span>
+	  	</div>
+	    <div class="col-sm-12 col-lg-12 col-xl-12">
+	      <div class="table-responsive">
+	        <table class="table">
+	          <thead class="thead-light">
+	            <tr>
+	              <th scope="col">#</th>
+	              <th scope="col">BVN</th>
+	              <th scope="col">Farmer's Name</th>
+	              <th scope="col">Gender</th>
+	              <th scope="col">Phone No.</th>
+	              <th scope="col">Actions</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr *ngFor="let item of farmersBvn; let i = index; trackBy:trackByIndex;">
+	              <th scope="row">{{i + 1}}</th>
+	              <td contenteditable="{{!item.validated}}" width="15%" [ngClass]="{'edit-bvn-td':!item.validated}" [(ngModel)]="farmersBvn[i].bvn"></td>
+	              <td>
+	              	<div class="row" *ngIf="item.photo">
+		              	<span class="col-4 pr-0">
+		              		<img class="img-fluid" [src]="serverRequest.sanitizeImage(item.photo)" alt="" style="width: 50px !important; height: 50px; border-radius: 10px;">
+		              	</span>
+		              	<span class="col-8 pl-0">{{item.name}}</span>
+	             	</div>
+	              </td>
+	              <td *ngIf="item.validated">{{item.gender}}</td>
+	              <td *ngIf="item.validated">{{item.phoneNumber}}</td>
+	              <td *ngIf="item.validated" width="2%">
+	              	<div class="col-12" *ngIf="farmersBvn[i].bvn != ''">
+	              		<div class="btn-group" role="group" aria-label="Action Buttons">
+	                      <button class="btn btn-sm btn-pill btn-info btn-air" type="button" (click)="open(myModal, i)">
+	                      	<!-- <i data-feather="eye"></i> --> View
+	                      </button>
+	                      <button class="btn btn-sm btn-pill btn-light text-danger btn-air" type="button" *ngIf="!item.constant" (click)="removeBvn(i)">
+	                      	<!-- <i data-feather="trash-2"></i> --> Remove
+	                      </button>
+	                    </div>
+	              	</div>
+	              </td>
+	              <td colspan="3" *ngIf="!item.validated">
+	              	<span *ngIf="farmersBvn[i].bvn != ''">
+	                      <button class="btn btn-primary" type="button" (click)="validateBvn(i)">Validate BVN</button>
+	              	</span>
+	              </td>
+	            </tr>
+	            <tr>
+	            	<td colspan="6"></td>
+	            </tr>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	    <div class="col-md-12 m-t-15">
+	    	<p class="text-center pt-3"><a (click)="processStage()" class="btn btn-primary">Continue</a></p>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<ng-template #myModal let-modal>
+	<div class="modal-content">
+	  <button class="close theme-close" type="button" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('');"><span aria-hidden="true">×</span></button>
+	  <div class="modal-body">
+	    <div class="card">
+	      <div class="animate-widget">
+	        <div class="text-center p-25">
+	          <h4 class="mb-0">{{farmersBvn[modalIndex].name}}</h4>
+	        </div>
+	        <div class="col-12"><img class="col-12" [src]="serverRequest.sanitizeImage(farmersBvn[modalIndex].photo)" alt=""></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</ng-template>

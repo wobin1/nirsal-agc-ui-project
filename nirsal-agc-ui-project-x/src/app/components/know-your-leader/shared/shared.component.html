@@ -1,0 +1,142 @@
+<form class="theme-form">
+	<div class="row pl-5 pr-5" *ngIf="showBvnForm">
+		<div class="col-md-12 mb-3">
+			<h4 class="text-center">Please input the {{this.stageData.stageLeader}}'s BVN</h4>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div class="form-group col-md-12 text-center">
+				<label class="col-form-label pt-0">Bank Verification Number (BVN)</label>
+				<input class="form-control" name="agc-president-bvn" [(ngModel)]="agcData.bvn">
+			</div>
+			<div class="loader-box" *ngIf="processingRequest">
+				<div class="loader-9"></div>
+			</div>
+			<p class="text-center pt-3" *ngIf="!processingRequest"><a (click)="processBvnRequestNum()" class="btn btn-primary">Continue</a></p>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row p-5" *ngIf="!showBvnForm">
+		<div class="col-md-12 mb-3">
+			<h4 class="text-center">Confirm <strong>{{bvnData.NameOnCard}}</strong> as the {{this.stageData.stageLeader}}</h4>
+		</div>
+		<div class="col-md-4">
+			<div class="my-gallery" itemscope="">
+				<figure itemprop="associatedMedia" itemscope=""><a href="#" itemprop="contentUrl" data-size="100x100"><img class="img-fluid rounded" [src]="serverRequest.sanitizeImage(bvnData.Base64Image)" itemprop="thumbnail" alt="gallery"></a>
+					<figcaption itemprop="caption description">{{bvnData.NameOnCard}}</figcaption>
+				</figure>
+			</div>
+			<div class="mt-4">
+				<table class="table table-borderless table-condensed">
+					<tbody>
+						<tr>
+							<td style="font-weight: 700;">BVN</td>
+							<td>{{agcData.bvn}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: 700;">Full Name</td>
+							<td>{{agcData.FullName}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: 700;">Email Address</td>
+							<td>{{agcData.Email}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: 700;">Phone Number</td>
+							<td>{{agcData.PhoneNumber}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: 700;">Date Of Birth</td>
+							<td>{{agcData.DateOfBirth}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: 700;">Gender</td>
+							<td>{{agcData.Gender}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-7">
+			<div class="row mt-3">
+				<div class="col-md-12 mb-3">
+					<h4 class="text-center">
+						Address and Qualifications<br/>
+						<!-- <small>Please input the {{this.stageData.stageLeader}}'s address and qualifications correctly</small> -->
+					</h4>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group col-md-12">
+						<label class="col-form-label pt-0">Residential State</label>
+						<select class="form-control" name="state" [(ngModel)]="agcData.state">
+							<option>Abia</option>
+							<option>Adamawa</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group col-md-12">
+						<label class="col-form-label pt-0">Residential LGA</label>
+						<select class="form-control" name="lga" [(ngModel)]="agcData.lga">
+							<option>Aba North</option>
+							<option>Aba South</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group col-md-12">
+						<label class="col-form-label pt-0">Contact Address</label>
+						<input class="form-control" type="text" name="contactAddress" [(ngModel)]="agcData.address">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group col-md-12">
+						<label class="col-form-label pt-0">Academic Qualification</label>
+						<select class="form-control" name="acadQuali" [(ngModel)]="agcData.academicQualification">
+							<option>Doctor of Philosophy (PhD)</option>
+							<option>Postgraduate (MSc., MA, MBA)</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group col-md-12">
+						<label class="col-form-label pt-0">Work Experience</label>
+						<select class="form-control" name="workExperience" [(ngModel)]="agcData.workExperience">
+							<option>1 - 5 years</option>
+							<option>6 - 10 years</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<hr class="w-100"/>
+			<div class="row mt-3">
+				<div class="col-md-12 mb-3">
+					<h4 class="text-center">
+						Questionnaire<br/>
+						<!-- <small>Please answer the following questions correctly</small> -->
+					</h4>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group col-md-12" *ngFor="let quest of agcData.questionnaire; let index=index">
+						<label class="col-form-label pt-0">{{quest.question}}</label>
+						<div class="form-group m-t-15 m-checkbox-inline mb-0 custom-radio-ml">
+							<div class="radio radio-primary">
+								<input id="radio-quest_{{index}}-yes" type="radio" name="quest_{{index}}_yes" value="Yes" [(ngModel)]="agcData.questionnaire[index].answer">
+								<label class="mb-0" for="radio-quest_{{index}}-yes">Yes</label>
+							</div>
+							<div class="radio radio-primary">
+								<input id="radio-quest_{{index}}-no" type="radio" name="quest_{{index}}_no" value="No" [(ngModel)]="agcData.questionnaire[index].answer">
+								<label class="mb-0" for="radio-quest_{{index}}-no">No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="w-100"/>
+		<div class="col-md-12">
+			<p class="text-center"><a (click)="proceed()" class="btn btn-primary">Continue</a></p>
+		</div>
+	</div>
+</form>

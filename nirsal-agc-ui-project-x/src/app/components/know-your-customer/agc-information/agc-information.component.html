@@ -1,0 +1,97 @@
+<div class="card">
+  <!-- <div class="card-header">
+      <h5 class="text-center"></h5>
+   </div> -->
+   <div class="row card-block">
+      <div class="col-8 r-border">
+        <form class="theme-form mt-3">
+          <div class="row pl-5 pr-5">
+            <div class="col-md-12">
+              <label class="col-form-label pt-0">Proposed AGC Name</label>
+              <input class="form-control" name="agc-proposed-name" [(ngModel)]="data.agcName">
+            </div>
+
+            <div class="col-md-12 pt-3">
+              <label class="col-form-label pt-0">Commodity Type</label>
+              <select class="form-control" name="commodity-type" [(ngModel)]="data.commodityType">
+                <option value="crop" selected="">Crop</option>
+                <option value="poultry">Poultry</option>
+                <option value="livestock">Livestock</option>
+                <option value="aquaculture">Aquaculture</option>
+              </select>
+            </div>
+
+            <div class="container p-0" *ngIf="data.commodityType == 'crop'">
+              <div class="col-md-12 pt-3">
+                <label class="col-form-label pt-0">Crop</label>
+                <select class="form-control" name="crop-type" [(ngModel)]="data.crop">
+                  <option value="Fresh Fruits">Fresh Fruits</option>
+                  <option value="Vegetables">Vegetables</option>
+                  <option value="Hibiscus">Hibiscus</option>
+                  <option value="Sesame">Sesame</option>
+                  <option value="Cashew">Cashew</option>
+                  <option value="Shea">Shea</option>
+                  <option value="Cotton">Cotton</option>
+                  <option value="Rice">Rice</option>
+                  <option value="Beans">Beans</option>
+                  <option value="Maize">Maize</option>
+                  <option value="Soya">Soya</option>
+                  <option value="Sweet Potato">Sweet Potato</option>
+                  <option value="Irish Potato">Irish Potato</option>
+                  <option value="Wheat">Wheat</option>
+                  <option value="Sugarcane">Sugarcane</option>
+                  <option value="Cassava">Cassava</option>
+                </select>
+              </div>
+              <div class="col-md-12 pt-3">
+                <label class="col-form-label">Total AGC Land Size (in Hectares)</label>
+                <input class="form-control" type="number" min="10" step="10" name="agc-land-size" [(ngModel)]="data.agcCapacity">
+              </div>
+            </div>
+
+            <div class="col-md-12 pt-3" *ngIf="data.commodityType != 'crop'">
+              <label class="col-form-label">Total AGC Capacity</label>
+              <input class="form-control" type="number" name="agc-capacity" [(ngModel)]="data.agcCapacity">
+            </div>
+
+            <div class="col-md-12 pt-3">
+              <label class="col-form-label">Total Number of Farmers</label>
+              <input class="form-control" type="number" min="4" name="agc-number-of-farmers" [(ngModel)]="data.agcTotalFarmers">
+            </div>
+
+            <div class="col-md-12 pt-3 pb-1"><h6 style="font-weight: 600">AGC Location</h6></div>
+
+            <div class="col-md-4">
+              <label class="col-form-label pt-0">State</label>
+              <select class="form-control" name="agc-location-state" [(ngModel)]="data.agcLocationState">
+                <option>Abia</option>
+                <option>Adamawa</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="col-form-label pt-0">LGA</label>
+              <select class="form-control" name="agc-location-lga" [(ngModel)]="data.agcLocationLga">
+                <option>Abia</option>
+                <option>Adamawa</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="col-form-label pt-0">City / Village</label>
+              
+              <input class="form-control" type="text" name="agc-number-of-farmers" [(ngModel)]="data.agcLocationVillage"> 
+            </div>
+
+            <div class="col-md-12 m-t-15">
+              <p class="text-center pt-3" *ngIf="!processingRequest"><a (click)="processStage()" class="btn btn-primary">Continue</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-4">
+        <img src="assets/images/commodities/{{data.commodityType}}.svg" style="width:  100%; height:  30vh;"/>
+        <h3 class="text-bold text-center pt-3">{{data.agcName}} AGC</h3>
+        <p class="text-bold" style="font-weight: 600;"><i class="detail-icon organik-icon-farm"></i> 1 Cell plus ({{data.agcCapacity}} Hectares)</p>
+        <p class="text-bold" style="font-weight: 600;"><i class="detail-icon organik-icon-farmer"></i> {{data.agcTotalFarmers}} farmers</p>
+      </div>
+   </div>
+</div>

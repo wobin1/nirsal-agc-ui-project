@@ -1,0 +1,62 @@
+<div class="row">
+	<div class="col-md-4">
+		<div class="card custom-card">
+		  <div class="card-header"><img class="img-fluid" src="../assets/images/user-card/green_min.jpg" style="height:200px;" alt=""></div>
+		  <div class="card-profile"><img class="rounded-circle" [src]="serverRequest.sanitizeImage(stageData.presidentPhoto)" style="width:120px" alt=""></div>
+		  <div class="text-center profile-details">
+		    <h4>{{stageData.president.FullName}}</h4>
+		    <h6>AGC President</h6>
+		  </div>
+		  <div class="card-footer row">
+		    <div class="col-12">
+		      <h6>BVN</h6>
+		      <h3>{{stageData.president.bvn}}</h3>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="card custom-card">
+		  <div class="card-header"><img class="img-fluid" src="../assets/images/user-card/blue.jpg" style="height:200px;" alt=""></div>
+		  <div class="card-profile"><img class="rounded-circle" [src]="serverRequest.sanitizeImage(stageData.vicePresidentPhoto)" style="width:120px" alt=""></div>
+		  <div class="text-center profile-details">
+		    <h4>{{stageData.vicePresident.FullName}}</h4>
+		    <h6>Vice President</h6>
+		  </div>
+		  <div class="card-footer row">
+		    <div class="col-12">
+		      <h6>BVN</h6>
+		      <h3>{{stageData.vicePresident.bvn}}</h3>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="card custom-card">
+		  <div class="card-header"><img class="img-fluid" src="../assets/images/user-card/dark.jpg" style="height:200px;" alt=""></div>
+		  <div class="card-profile"><img class="rounded-circle" [src]="serverRequest.sanitizeImage(stageData.directorOfFinancePhoto)" style="width:120px" alt=""></div>
+		  <div class="text-center profile-details">
+		    <h4>{{stageData.directorOfFinance.FullName}}</h4>
+		    <h6>Director Of Finance</h6>
+		  </div>
+		  <div class="card-footer row">
+		    <div class="col-12">
+		      <h6>BVN</h6>
+		      <h3>{{stageData.directorOfFinance.bvn}}</h3>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+	</div>
+	<!-- The continue button Progressbar shoud be added -->
+	<div class="col-md-4" *ngIf="stageInfo.stage_status != 1">	
+		<p class="text-center pt-3"><a (click)="saveLeaders()" class="btn btn-primary">Continue</a></p>
+	</div>
+	<div class="col-md-4">
+	</div>
+</div>

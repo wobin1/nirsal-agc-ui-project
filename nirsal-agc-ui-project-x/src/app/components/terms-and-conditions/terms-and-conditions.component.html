@@ -1,0 +1,85 @@
+<div class="card">
+	<div class="card-body">
+		<div class="col-md-12 text-justify">
+			<div>
+				<ul style="list-style-type: circle !important;" class=" text-justify">
+					<li>
+						<h6>Please note that the NIRSAL AGC is a rule-based cooperative following a well-defined guideline:</h6>
+
+						<ol type="a">
+							<li>AGC leaders and individual farmers must therefore consent to and abide by the set rules and regulations</li>
+							<li>AGC members must abide by the cross-guarantee laws established </li>
+						</ol>
+					</li>
+					<li>
+						<h6>There shall be a robust Governance structure comprising of President, Vice President and Director of Finance</h6>
+					</li>
+					<li>
+						<h6>You shall accept the deployment of modern technologies/innovations and meet the requirements of structured markets and commercial funding.</h6>
+					</li>
+					<li>
+						<h6>The following services would be rendered to the members of the AGC in a centralized and well-coordinated manner: </h6>
+
+						<ol type="i">
+							<li>Geo-spatial services</li>
+							<li>Monitoring services</li>
+							<li>Extension services</li>
+							<li>Aggregation services</li>
+							<li>Loan recovery services</li>
+						</ol>
+					</li>
+					<li>
+						<h6>These services shall be provided for and funded from agreed Cost of Production</h6>
+					</li>
+					<li>
+						<h6>You shall facilitate the social engineering and sensitization of your farmers on the AGC concept.</h6>
+					</li>
+					<li>
+						<h6>Completion and submission of this form does not confirm any right or obligation on NIRSAL Plc or any other Agency (Organization) to approve the loan application. Therefore, submission of a completed form is just an expression of interest to participate in the program which is subject to approval or rejection. </h6>
+					</li>
+					<li>
+						<h6>NIRSAL is hereby indemnified for any loss suffered as a result of any action taken regarding the completion and submission of application form, the Loan (if approved) or the entire program. </h6>
+					</li>
+				</ul>
+			</div>
+			<div class="mt-3"><h3>Hence:</h3></div>
+			<div>
+				<ol class=" text-justify">
+					<li>
+						<h6>That we clearly understand that our expression of interest on this platform does not guarantee automatic qualification to access the ABP funding. </h6>
+					</li>
+					<li>
+						<h6>That we will guarantee each other jointly and severally and to be jointly responsible for the repayment of all loans taken by each and every one of us as at when due.</h6>
+					</li>
+					<li>
+						<h6>That we jointly and severally undertake not to engage in side-selling activities. NIRSAL reserves the right to take necessary action as deemed fit in the event of a breach.</h6>
+					</li>
+					<li>
+						<h6>That we jointly and severally authorize NIRSAL to access our accounts and loan information from the designated Channel Partner Banks for such contractual and regulatory purposes as it may require. This includes but not limited to the new CBN policy on Global Standing Instructions (GIS). </h6>
+					</li>
+					<li>
+						<h6>Failure to repay the loan taken from NIRSAL by any one of us shall give NIRSAL the right to exclude any or all of us from any future loans or other programs it may provide.
+						</h6>
+					</li>
+					<li>
+						<h6>We have severally and jointly agreed to be disqualified from participating in this program upon failure to pass credit checks. </h6>
+					</li>
+					<li>
+						<h6>We irrevocably authorize the designated NIRSAL Channel Partner Banks to honour NIRSAL’s instructions on our accounts until the loan has been duly and fully repaid, to release all our accounts and loan information to NIRSAL for such contractual and regulatory purposes as it may require and we also waive our rights to claim banker-customer confidentiality on our accounts with the designated NIRSAL Channel Partner Bank until the loan granted to us by NIRSAL has been fully repaid by each and every one of us. </h6>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row mt-3">
+		  	<div class="col">
+		  		<div class="checkbox checkbox-success">
+				    <input id="checkbox-primary" type="checkbox" [(ngModel)]="acceptTerms" [disabled]="stageInfo.stage_status == 1 ? true : null">
+				    <label for="checkbox-primary" style="font-weight: 700;">I understand and accept the terms and conditions listed above</label>
+			  	</div>
+		  	</div>
+			<div class="col-md-12" *ngIf="stageInfo.stage_status != 1">
+				<p class="text-center"><a (click)="saveStage()" class="btn btn-primary">CONTINUE</a></p>
+			</div>
+		</div>
+	</div>
+</div>

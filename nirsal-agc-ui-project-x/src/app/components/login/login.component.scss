@@ -1,0 +1,13 @@
+.login-divider {
+	&:before {
+		content: "Forgot your password?" !important
+	}
+}
+
+.signupForm > .row > .form-group {
+	text-align:left !important
+}
+
+.signupForm > .row {
+	margin-bottom: 0px !important;
+}

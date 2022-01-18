@@ -1,0 +1,120 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "user_bvn": "34543453543435",
+      "respondent": "",
+      "first_name": "",
+      "last_name": "",
+      "user_email": "",
+      "phone_number": "",
+      "user_password": "",
+      "state": "",
+      "LGA": ""
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "user_email": "",
+      "phone_number": "",
+      "user_password": "",
+      "state": "",
+      "LGA": "",
+      "id": 3
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "user_email": "",
+      "phone_number": "",
+      "user_password": "",
+      "state": "",
+      "LGA": "",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "user_bvn": "23424245",
+      "respondent": ""
+    },
+    {
+      "id": 6,
+      "user_bvn": "23424245",
+      "respondent": ""
+    },
+    {
+      "id": 7,
+      "user_bvn": "23424245",
+      "respondent": ""
+    },
+    {
+      "id": 8,
+      "user_bvn": "22375935251"
+    },
+    {
+      "id": 9,
+      "first_name": "",
+      "last_name": "",
+      "user_email": "",
+      "phone_number": "",
+      "user_password": "",
+      "state": "",
+      "LGA": ""
+    },
+    {
+      "id": 10,
+      "first_name": null,
+      "last_name": null,
+      "user_email": null,
+      "phone_number": null,
+      "user_password": null,
+      "state": null,
+      "LGA": null
+    },
+    {
+      "id": 11,
+      "first_name": "",
+      "last_name": "",
+      "user_email": "",
+      "phone_number": "",
+      "user_password": "",
+      "state": "",
+      "LGA": ""
+    },
+    {
+      "id": 12,
+      "first_name": null,
+      "last_name": null,
+      "user_email": null,
+      "phone_number": null,
+      "user_password": null,
+      "state": null,
+      "LGA": null
+    },
+    {
+      "id": 13,
+      "first_name": "",
+      "last_name": "",
+      "user_email": "",
+      "phone_number": "",
+      "user_password": "",
+      "state": "",
+      "LGA": ""
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
